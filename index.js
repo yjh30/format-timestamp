@@ -16,7 +16,7 @@ module.exports = function(timestamp) {
 	var milliseconds = Math.floor(timestamp % 1000);
 
 	return {
-		days: d,
+		days: days,
 		hours: hours,
 		minutes: minutes,
 		seconds: seconds,
