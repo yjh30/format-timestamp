@@ -1,4 +1,11 @@
-module.exports = function(timestamp) {
+function getAdjustValue(isDibit, value) {
+	if (isDibit && value < 10) {
+		return '0' + String(value);
+	}
+	return value;
+}
+
+module.exports = function(timestamp, isDibit) {
 	if (typeof timestamp !== 'number' || isNaN(timestamp) || timestamp <= 0) {
 		return {
 			days: 0,
@@ -17,9 +24,9 @@ module.exports = function(timestamp) {
 
 	return {
 		days: days,
-		hours: hours,
-		minutes: minutes,
-		seconds: seconds,
+		hours: getAdjustValue(isDibit, hours),
+		minutes: getAdjustValue(isDibit, minutes),
+		seconds: getAdjustValue(isDibit, seconds),
 		milliseconds: milliseconds
 	};
 }
