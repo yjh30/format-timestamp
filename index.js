@@ -10,9 +10,9 @@ module.exports = function(timestamp) {
 	}
 
 	var days = Math.floor(timestamp / (24 * 60 * 60 * 1000));
-	var hours = Math.floor(timestamp % (24 * 60 * 60 * 1000) / (60 * 60 * 1000));
-	var minutes = Math.floor(timestamp % (60 * 60 * 1000) / (60 * 1000));
-	var seconds = Math.floor(timestamp % (60 * 1000) / 1000);
+	var hours = Math.floor(timestamp / (60 * 60 * 1000) % 24);
+	var minutes = Math.floor(timestamp / (60 * 1000) % 60);
+	var seconds = Math.floor(timestamp / 1000 % 60);
 	var milliseconds = Math.floor(timestamp % 1000);
 
 	return {
@@ -21,5 +21,5 @@ module.exports = function(timestamp) {
 		minutes: minutes,
 		seconds: seconds,
 		milliseconds: milliseconds
-	}
+	};
 }
