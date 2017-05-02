@@ -1,6 +1,6 @@
 {
   "name": "format-timestamp",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "格式化时间戳",
   "main": "index.js",
   "scripts": {
@@ -12,10 +12,11 @@
   },
   "keywords": [
     "countdown",
-    "day",
-    "hour",
-    "minute",
-    "second"
+    "days",
+    "hours",
+    "minutes",
+    "seconds",
+    "milliseconds"
   ],
   "author": "yangjunhua",
   "license": "ISC",
