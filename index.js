@@ -5,6 +5,8 @@ function getAdjustValue(isDibit, value) {
 	return value;
 }
 
+var flags = ['days', 'hours', 'minutes', 'seconds', 'milliseconds'];
+
 module.exports = function(timestamp, isDibit, flag) {
 	var days, hours, minutes,
 	 	seconds, milliseconds;
@@ -20,12 +22,19 @@ module.exports = function(timestamp, isDibit, flag) {
 	}
 
 	if (typeof isDibit === 'string') {
-		flag = isDibit;
-		isDibit = false;
-	}
-
-	if (isDibit === undefined && flag === undefined) {
-		isDibit = false;
+		if (flags.indexOf(isDibit) > -1) {
+			flag = isDibit;
+		} else {
+			console.warn('the flag is invalid value, should be days or hours or minutes or seconds or milliseconds')
+			return {
+				days: 0,
+				hours: 0,
+				minutes: 0,
+				seconds: 0,
+				milliseconds: 0
+			};
+		}
+	} else {
 		flag = 'days';
 	}
 
