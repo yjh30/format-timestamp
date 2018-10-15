@@ -11,7 +11,7 @@ function getAdjustValue(isDibit, value) {
 
 var flags = ['days', 'hours', 'minutes', 'seconds', 'milliseconds'];
 
-export default (timestamp, isDibit, flag) => {
+module.exports = function(timestamp, isDibit, flag) {
   var days, hours, minutes,
     seconds, milliseconds;
 
